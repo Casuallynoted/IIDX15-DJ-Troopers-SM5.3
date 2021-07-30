@@ -6,6 +6,7 @@ local t = Def.ActorFrame {
 		LoseFocusCommand=cmd(stoptweening;diffusealpha,0);
 	};
 Def.Sprite {
+	    Name="Tutorial";
 		Texture="_tutorial 1x16.png";
 			Frame0000=0;
 			Delay0000=0.03;
@@ -40,8 +41,16 @@ Def.Sprite {
 			Frame0015=15;
 			Delay0015=0.03;
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+65);
-		OnCommand=cmd(loop,0;diffusealpha,1;setstate,0;sleep,self:GetAnimationLengthSeconds();diffusealpha,0);
-		GainFocusCommand=cmd(stoptweening;loop,0;diffusealpha,1;setstate,0;sleep,self:GetAnimationLengthSeconds();diffusealpha,0);
+		OnCommand = function(self)
+			self:loop(false):diffusealpha(1):setstate(0)
+			:sleep( self:GetAnimationLengthSeconds() ):diffusealpha(0)
+		end;
+		--OnCommand=cmd(loop,0;diffusealpha,1;setstate,0;sleep,20;diffusealpha,0);
+		GainFocusCommand = function(self)
+			self:stoptweening():loop(false):diffusealpha(1):setstate(0)
+			:sleep( self:GetAnimationLengthSeconds() ):diffusealpha(0)
+		  end;
+		--GainFocusCommand=cmd(stoptweening;loop,0;diffusealpha,1;setstate,0;sleep,self:GetAnimationLengthSeconds();diffusealpha,0);
 		LoseFocusCommand=cmd(stoptweening;diffusealpha,0);
 	};
 	LoadActor("texture/style2.png")..{

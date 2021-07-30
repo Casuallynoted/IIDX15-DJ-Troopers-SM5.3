@@ -1,6 +1,6 @@
 local t = Def.ActorFrame {
 	LoadActor("_mode decide")..{
-		OnCommand=cmd(visible,false;stop);
+		OnCommand=cmd(visible,false;pause);
 		OffFocusedCommand=cmd(visible,true;play);
 	};
 	LoadActor("DECIDE_GLOW.png")..{
