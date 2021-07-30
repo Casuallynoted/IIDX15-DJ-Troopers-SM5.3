@@ -1,0 +1,63 @@
+local t = Def.ActorFrame{
+	Def.Quad{
+	InitCommand=cmd(diffuse,color("#000000");zoomtowidth,SCREEN_WIDTH;zoomtoheight,SCREEN_HEIGHT;x,SCREEN_CENTER_X;y,240;sleep,1;linear,.4;diffusealpha,0;);
+	};
+	Def.Quad{
+	InitCommand=cmd(zoomtowidth,SCREEN_WIDTH;zoomtoheight,220;x,SCREEN_CENTER_X;y,250;diffusealpha,0;sleep,1;linear,.2;diffusealpha,0.5;sleep,1.8;linear,.2;diffusealpha,0);
+	};
+	Def.Quad{
+	InitCommand=cmd(zoomtowidth,SCREEN_WIDTH;zoomtoheight,220;x,SCREEN_CENTER_X;y,250;diffusealpha,0;sleep,3;linear,0;diffusealpha,1;linear,.3;zoomy,0);
+	};
+	----------------------------------------------------------------------------------------------------------
+	--REGULAR--
+	--Only P1 (Regular)--
+	LoadActor("_ONLY P1.lua")..{
+	InitCommand=cmd(x,0;y,0);
+	Condition=GAMESTATE:GetPlayMode() == 'PlayMode_Regular' and GAMESTATE:IsPlayerEnabled(PLAYER_1) and not GAMESTATE:IsPlayerEnabled(PLAYER_2)
+	};
+	--Only P2 (Regular)--
+	LoadActor("_ONLY P2.lua")..{
+	InitCommand=cmd(x,0;y,0);
+	Condition=GAMESTATE:GetPlayMode() == 'PlayMode_Regular' and GAMESTATE:IsPlayerEnabled(PLAYER_2) and not GAMESTATE:IsPlayerEnabled(PLAYER_1)
+	};
+	--Versus (Regular)--
+	LoadActor("_VERSUS.lua")..{
+	InitCommand=cmd(x,0;y,0);
+	Condition=GAMESTATE:GetPlayMode() == 'PlayMode_Regular' and GAMESTATE:GetCurrentStyle():GetName() == 'versus'
+	};
+	LoadActor("_BANNER.lua")..{
+	InitCommand=cmd(x,SCREEN_CENTER_X;y,452);
+	OnCommand=cmd(addy,50;linear,.2;addy,-50;sleep,.1;linear,.05;addy,2;linear,.05;addy,-2;);
+	};
+	LoadActor("_LIFE_P1.lua")..{
+	InitCommand=cmd(x,SCREEN_CENTER_X-181;y,27);
+	OnCommand=cmd(addx,-260;linear,.2;addx,260;linear,.05;addy,-2;linear,.05;addy,2;);
+	};
+	LoadActor("_LIFE_P2.lua")..{
+	InitCommand=cmd(x,SCREEN_CENTER_X+181;y,27);
+	OnCommand=cmd(addx,260;linear,.2;addx,-260;linear,.05;addy,-2;linear,.05;addy,2);
+	};
+	LoadActor("BPM.png")..{
+	InitCommand=cmd(x,SCREEN_CENTER_X+1;y,31);
+	OnCommand=cmd(addy,-50;linear,.2;addy,50;linear,.05;addy,-2;linear,.05;addy,2);
+	};
+	Def.SongBPMDisplay{
+	File=THEME:GetPathF("", "Gameplay BPM");
+	Name="BPMDisplay";
+	InitCommand=cmd(x,SCREEN_CENTER_X;y,94;diffusealpha,1);
+	OnCommand=function(self) self:SetFromGameState() end;
+	};
+	LoadActor("HIBANA")..{
+	};
+	LoadActor("DIFFICULTY")..{
+	InitCommand=cmd(x,-3;y,-1);
+	};
+	LoadActor("STAGE")..{
+	InitCommand=cmd(x,3;y,-1);
+	};
+	LoadActor("TIME_DISPLAY")..{
+	InitCommand=cmd(x,SCREEN_CENTER_X;y,18;);
+	};
+};
+
+return t;

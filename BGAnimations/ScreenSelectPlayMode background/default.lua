@@ -1,0 +1,46 @@
+local t = Def.ActorFrame {
+	LoadActor("model")..{
+		OnCommand=cmd(visible,true);
+		OffCommand=cmd(visible,false);
+	};
+	LoadActor("BGM (loop)")..{
+		OffCommand=cmd(stop);
+		OnCommand=cmd(play);
+	};
+	Def.Quad{
+		OnCommand=cmd(blend,'BlendMode_Add';x,SCREEN_CENTER_X;y,SCREEN_BOTTOM;vertalign,bottom;zoomtowidth,SCREEN_WIDTH;zoomtoheight,32;diffuse,color("#000000"));
+	};
+	LoadActor("RED_LIGHT.png")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;zoomtoheight,SCREEN_HEIGHT);
+		OnCommand=cmd(blend,'BlendMode_Add';diffuseshift;effectperiod,2;effectcolor1,1,1,1,1;effectcolor2,1,1,1,0.6);
+	};
+	LoadActor("BG_MODE.png")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;zoomtoheight,SCREEN_HEIGHT);
+		OnCommand=cmd(diffusealpha,0;addx,-15;addy,-15;linear,0.5;addx,15;addy,15;diffusealpha,0.8);
+	};
+	LoadActor("UP_PARTS.png")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X-21;y,SCREEN_CENTER_Y-144);
+		OnCommand=cmd(blend,'BlendMode_Add';addy,400;sleep,0.1;linear,0.5;addy,-350;linear,0.15;addy,-50;linear,0.4;diffusealpha,0);
+	};
+	LoadActor("MOBG_FLASH1.png")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X-280;y,SCREEN_CENTER_Y-40);
+		OnCommand=cmd(blend,'BlendMode_Add';diffusealpha,0;sleep,0.5;diffusealpha,0.7;sleep,0.1;diffusealpha,0);
+	};
+	LoadActor("MOBG_FLASH2.png")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X-1;y,SCREEN_CENTER_Y-79);
+		OnCommand=cmd(blend,'BlendMode_Add';diffusealpha,0;sleep,0.55;diffusealpha,0.7;sleep,0.1;diffusealpha,0);
+	};
+	LoadActor("MOBG_FLASH3.png")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X+23;y,SCREEN_CENTER_Y+44);
+		OnCommand=cmd(blend,'BlendMode_Add';diffusealpha,0;sleep,0.6;diffusealpha,0.7;sleep,0.1;diffusealpha,0);
+	};
+	LoadActor("MODE_NAME_BG.png")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+62);
+		OnCommand=cmd(blend,'BlendMode_Add';texcoordvelocity,-.1,0;zoomy,0;diffusealpha,0;sleep,0.2;linear,0.3;zoomy,1;diffusealpha,1);
+	};
+	LoadActor("MODE_INFO_WAKU.png")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+126);
+		OnCommand=cmd(zoomy,0;sleep,0.5;linear,0.2;zoomy,1);
+	};
+};
+return t;
