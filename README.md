@@ -7,8 +7,6 @@ A StepMania 5.3 update for the Beatmania IIDX 15 (DJ Troopers) theme
 
 Global:
 
--Project OutFox Logo appears on Title Screen
-
 -Certain visual/audio components of the theme are tied to theme-specific customisation options, but the theme does not set defaults. This leads to things like the music select menu/bgm and turntable graphics missing. Setting defaults for these should rectify this issue.
 
 -As an additional issue to that, the theme uses a specific static background track for the music select menu. Would likely be a better idea to change this so that it plays the song in preview and only plays the generic background track when a song is not selected.
