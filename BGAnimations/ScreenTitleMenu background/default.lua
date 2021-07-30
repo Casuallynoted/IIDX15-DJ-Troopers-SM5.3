@@ -7,17 +7,17 @@ local t = Def.ActorFrame {
 	};
 	-- [Layer1]
 	LoadActor("TITLE_BG1")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;zoomtoheight,SCREEN_HEIGHT;);
 		OnCommand=cmd(texcoordvelocity,0.5,0;zoomy,0.1;linear,1.8;zoomy,0.5;linear,0.1;zoomy,1.2;linear,0.1;zoomy,1;);
 	};
 	-- [Layer2]
 	LoadActor("TITLE_BG2")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;);
 		OnCommand=cmd(blend,'BlendMode_Add';zoomy,0.1;linear,1.8;zoomy,0.5;texcoordvelocity,-.5,0;linear,0.1;zoomy,1.2;linear,0.1;zoomy,1;);
 	};	
 	-- [Layer3]
 	LoadActor("TITLE_BG3")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;);
 		OnCommand=cmd(blend,'BlendMode_Add';zoomy,0.1;linear,1.8;zoomy,0.5;texcoordvelocity,0.5,0;diffusealpha,0.5);
 	};	
 	-- [Layer4]
@@ -27,7 +27,7 @@ local t = Def.ActorFrame {
 	};	
 	-- [Layer5]
 	LoadActor("TITLE_BG1")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;zoomtoheight,SCREEN_HEIGHT;);
 		OnCommand=cmd(texcoordvelocity,0.1,0;zoomy,0.1;diffusealpha,0;sleep,1.8;diffusealpha,1;zoomy,0.5;linear,0.1;zoomy,1.2;linear,0.1;zoomy,1;);
 	};	
 	-- [Layer6]
@@ -37,12 +37,12 @@ local t = Def.ActorFrame {
 	};	
 	-- [Layer7]
 	LoadActor("TITLE_BG4")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X-160;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X-160;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;zoomtoheight,SCREEN_HEIGHT;);
 		OnCommand=cmd(blend,'BlendMode_Add';texcoordvelocity,-0.1,0;zoomy,0.1;diffusealpha,0;sleep,1.8;diffusealpha,0.8;zoomy,0.5;linear,0.1;zoomy,1.2;linear,0.1;zoomy,1;sleep,0;);
 	};	
 	-- [Layer8]
 	LoadActor("TITLE_BG3")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;);
 		OnCommand=cmd(blend,'BlendMode_Add';texcoordvelocity,0.12,0;zoomy,0.1;diffusealpha,0;sleep,1.8;diffusealpha,0.7;zoomy,0.5;linear,0.1;zoomy,1.2;linear,0.1;zoomy,1);
 	};	
 	
@@ -204,17 +204,17 @@ local t = Def.ActorFrame {
 	};
 	-- [Layer40]
 	LoadActor("TITLE_BG1.png")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;zoomtoheight,SCREEN_HEIGHT;);
 		OnCommand=cmd(texcoordvelocity,0.1,0;diffusealpha,0;sleep,2;diffusealpha,1;);
 	};
 	-- [Layer41]
 	LoadActor("TITLE_BG4.png")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X-160;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;zoomtoheight,SCREEN_HEIGHT;);
 		OnCommand=cmd(blend,'BlendMode_Add';texcoordvelocity,-.1,0;diffusealpha,0;;sleep,2;diffusealpha,1;);
 	};
 	-- [Layer42]
 	LoadActor("TITLE_BG3.png")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;);
 		OnCommand=cmd(blend,'BlendMode_Add';texcoordvelocity,0.12,0;diffusealpha,0;sleep,2;diffusealpha,1;);
 	};
 	-- [Layer43]
@@ -245,7 +245,7 @@ local t = Def.ActorFrame {
 	};
 	-- [Layer49]
 	LoadActor("TITLE_BG2.png")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;);
 		OnCommand=cmd(blend,'BlendMode_Add';texcoordvelocity,-.1,0;diffusealpha,0;sleep,2;diffusealpha,0.5;);
 	};
 	-- [Layer50]
